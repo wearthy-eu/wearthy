@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Brands | Wearthy</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Wearthy</a>
+      <ul>
+        <li><a href="discover.html" class="active">Discover Brands</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="discover-container">
+    <h1>Discover Sustainable Brands</h1>
+    <p>Explore verified ethical fashion brands in Central and Eastern Europe & the DACH region.</p>
+    <div class="map-list-wrapper">
+      <div id="map"></div>
+      <div class="brand-list" id="brandList">
+        <div class="brand-card">
+          <h3><a href="https://balaganstudio.com/pl/" target="_blank">Balagan Studio</a></h3>
+          <p>Minimalist, timeless footwear and accessories brand based in Poland and Israel, combining ethics with design.</p>
+          <p><strong>Location:</strong> Warsaw, Poland</p>
+        </div>
+        <div class="brand-card">
+          <h3><a href="https://elementywear.com/pl/" target="_blank">Elementy</a></h3>
+          <p>Modern clothing brand focused on transparency and local production, created by Polish designers.</p>
+          <p><strong>Location:</strong> Warsaw, Poland</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Wearthy. All rights reserved.</p>
+  </footer>
+  <script>
+    const map = L.map('map').setView([52.2297, 21.0122], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    const brands = [
+      { name: "Balagan Studio", lat: 52.2297, lon: 21.0122, link: "https://balaganstudio.com/pl/" },
+      { name: "Elementy", lat: 52.2297, lon: 21.0122, link: "https://elementywear.com/pl/" }
+    ];
+    brands.forEach(brand => {
+      L.marker([brand.lat, brand.lon])
+        .addTo(map)
+        .bindPopup(`<a href="${brand.link}" target="_blank">${brand.name}</a>`);
+    });
+  </script>
+</body>
+</html>
