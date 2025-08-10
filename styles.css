@@ -1,0 +1,11 @@
+body { font-family: Helvetica, Arial, sans-serif; background: #fff; color: #000; margin: 0; padding: 0; }
+header { background: #fff; border-bottom: 1px solid #ddd; padding: 1rem; }
+nav { display: flex; justify-content: space-between; align-items: center; }
+nav a { color: #00b140; text-decoration: none; }
+nav ul { list-style: none; display: flex; gap: 1rem; }
+.hero { text-align: center; padding: 5rem 1rem; }
+.cta { background: #00b140; color: white; padding: 0.5rem 1rem; border-radius: 4px; }
+footer { text-align: center; padding: 1rem; border-top: 1px solid #ddd; margin-top: 2rem; }
+#map { height: 400px; }
+.brand-card { border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; }
+@media(max-width:768px){ nav ul{flex-direction:column;} }
